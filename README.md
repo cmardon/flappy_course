@@ -205,7 +205,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 | 4     | Tout en bas de l'éditeur, cliquer sur le bouton **"TileSet"** pour ouvrir l’éditeur de tuiles|
 | 5     | Dans le système de fichiers (en bas à gauche de l'écran), rechercher une image de tileset, puis la **glisser dans le rectangle "Tile source"** de l’éditeur TileSet. Puis cliquer sur oui dans la fenêtre qui apparaît|
 
-Exemple de TileSet valide : ![tileset](Sunny Land Collection Files/Assets/Environments/Day-Platformer/PNG/tileset.png)
+Exemple de TileSet valide : 
+![tileset](https://github.com/cmardon/flappy_course/blob/main/Sunny%20Land%20Collection%20Files/Assets/Environments/Day-Platformer/PNG/tileset.png)
 
 | Étape | Description|
 | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
