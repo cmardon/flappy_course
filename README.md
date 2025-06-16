@@ -3,7 +3,7 @@
 ## Introduction
 - Présentation de Godot et de ses fonctionnalités
 - Objectif du cours : créer un jeu Flappy Bird
-
+---
 ## Récupération du projet
 
 ### Cours : Introduction à Godot
@@ -20,7 +20,7 @@
 ### Pause : Questions/Réponses
 - Vérifier que tout le monde a réussi à importer le projet
 - Répondre aux questions éventuelles
-
+---
 ## Création du joueur
 
 ### Cours : Les bases de Godot
@@ -39,7 +39,7 @@
 extends CharacterBody2D
 
 var gravity = 1000
-var jump_strength = -600
+var jump_strength = 600
 
 func _process(delta):
     velocity.y += gravity * delta
@@ -53,7 +53,7 @@ func _process(delta):
 func _process(delta):
     velocity.y += gravity * delta
     if Input.is_action_just_pressed("ui_accept"):
-        velocity.y = jump_strength
+        velocity.y = -jump_strength
     move_and_slide()
 ```
 | Étape | Description |
@@ -63,7 +63,7 @@ func _process(delta):
 ### Pause : Questions/Réponses
 - Vérifier que tout le monde a réussi à créer le joueur
 - Répondre aux questions éventuelles
-
+---
 ## Création du niveau
 
 ### Cours : Les scènes et les noeuds
@@ -77,7 +77,7 @@ func _process(delta):
 | 1 | Dans `src/`, créer une nouvelle scène 2D nommée « niveau1 » |
 | 2 | Glisser `joueur.tscn` au milieu de la scène `niveau1` et changer sa « scale » dans l'inspecteur en x:2 et y:2 |
 | 3 |  Tester avec F5 en sélectionnant la scène actuelle comme scène principale |
-
+---
 ## Découverte de la scène tuyau.tscn
 
 ### Explications
@@ -91,7 +91,7 @@ func _process(delta):
 ### Pause : Questions/Réponses
 - Vérifier que tout le monde a réussi à ouvrir la scène tuyau
 - Répondre aux questions éventuelles
-
+---
 ## Ajout de spawner à tuyau
 
 ### Cours : Les Timers et les Signaux
@@ -128,7 +128,7 @@ func generer_tuyau():
 | 8 | Ajuster la taille du générateur à 2 (dans l'inspecteur, scale x:2 y:2)|
 
 - Tester avec F5
-
+---
 ## Ajout des collisions joueur
 
 ### Cours : Les Collisions
@@ -145,7 +145,7 @@ func generer_tuyau():
 ### Pause : Questions/Réponses
 - Vérifier que tout le monde a réussi à ajouter les collisions
 - Répondre aux questions éventuelles
-
+---
 ## Ajout de collision tuyaux
 
 ### Cours : Les StaticBody2D et les CollisionShape2D
@@ -160,7 +160,7 @@ func generer_tuyau():
 | 3 | Ajouter une « CollisionShape2D » au « StaticBody2D » |
 | 4 | Placer la boîte de collision au bon endroit en l’adaptant à la forme du tuyau du haut |
 | 5 | Recommencer la même manipulation sur le tuyau du bas |
-
+---
 ## Ajout de détection tuyaux
 
 ### Cours : Les Area2D et les Signaux
@@ -176,12 +176,158 @@ Faisable en recommençant les étapes de la partie précédente, mais avec une A
 | Étape | Description |
 |-------|-------------|
 | 1 | Aller sur la scène « Tuyau » et sélectionner `tuyau_haut` |
-| 2 | Ajouter un noeud « Area2D » et une « CollisionShape2D » |
-| 3 | Placer la boîte de collision au bon endroit en l’adaptant à la forme du tuyau du haut |
-| 4 | Recommencer la même manipulation sur le tuyau du bas |
-| 5 | Sélectionner une Area2D puis dans l’inspecteur, cliquer sur l’onglet « Noeud » et double cliquer sur « body_entered » puis connecter. Enfin, remplacer « pass » par le code fourni |
+| 2 | Ajouter un noeud « Area2D » |
+| 3 | Ajouter une « CollisionShape2D » au « Area2D » |
+| 4 | Placer la boîte de collision au bon endroit en l’adaptant à la forme du tuyau du haut |
+| 5 | Recommencer la même manipulation sur le tuyau du bas |
+| 6 | Sélectionner une Area2D puis dans l’inspecteur, cliquer sur l’onglet « Noeud » et double cliquer sur « body_entered » puis connecter. Enfin, remplacer « pass » par le code fourni |
+| 7 | Connecter l'autre Area2D de la même manière |
 ```gdscript
-if body is CharacterBody2D:
-    get_tree().change_scene_to_file("res://src/niveau1.tscn")
+func _on_area_2d_body_entered(body: Node2D) -> void:
+    if body is CharacterBody2D:
+        get_tree().change_scene_to_file("res://src/niveau1.tscn")
 ```
 - Tester avec F5
+---
+## Ajout du fond avec TileMap
+
+### Cours : Les TileMaps
+
+* Introduction aux TileMaps
+
+### TP : Ajout d’un fond avec TileMap
+
+| Étape | Description|
+| ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1     | Aller dans la scène `niveau1`|
+| 2     | Ajouter un noeud `TileMapLayer`|
+| 3     | Sélectionner le `TileMapLayer` ajouté, puis dans l'inspecteur, cliquer sur `Tile Set : <vide>` et choisir `Nouveau TileSet`|
+| 4     | Tout en bas de l'éditeur, cliquer sur le bouton **"TileSet"** pour ouvrir l’éditeur de tuiles|
+| 5     | Dans le système de fichiers (en bas à gauche de l'écran), rechercher une image de tileset, puis la **glisser dans le rectangle "Tile source"** de l’éditeur TileSet. Puis cliquer sur oui dans la fenêtre qui apparaît|
+
+Exemple de TileSet valide : ![tileset](Sunny Land Collection Files/Assets/Environments/Day-Platformer/PNG/tileset.png)
+
+| Étape | Description|
+| ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 6     | Tout en bas de l'éditeur, cliquer sur le bouton **"TileMap"** |
+| 7     | Sélectionner des blocs de la tilemap et dessiner sur le niveau pour créer un décor|
+| 8     | Glisser le noeud `TileMapLayer` au dessus du joueur et du générateur de tuyaux dans l'arborescence à gauche dans l'onglet  `Scène`|
+| 9     | Tester les outils de lignes, de zones, ajouter un fond en glissant un png directement sur la scène si besoin |
+
+- Tester avec F5
+
+- Ne pas hésiter à mettre un autre `TileMapLayer` si on veut utiliser deux tileset en même temps (Pour le sol et pour le ciel par exemple)
+---
+## Effet de rotation du joueur
+
+### Cours : Transformations et animation manuelle
+
+* Présentation de la propriété `rotation_degrees`
+* Utilisation de la fonction `clamp()` pour limiter l'angle
+* Explication de l'effet de "bascule" pendant la chute et le saut
+
+### TP : Ajout de la rotation
+
+| Étape | Description                                  |
+| ----- | -------------------------------------------- |
+| 1     | Aller dans le script du joueur               |
+| 2     | Modifier `_process` pour inclure la rotation |
+
+```gdscript
+func _process(delta):
+    velocity.y += gravity * delta
+    if Input.is_action_just_pressed("ui_accept"):
+        velocity.y = jump_strength
+
+    # Rotation selon la vitesse
+    rotation_degrees = clamp(velocity.y * 0.1, -30, 90)
+
+    move_and_slide()
+```
+
+- Tester avec F5
+
+---
+
+## Ajout d'effets sonores
+
+### Cours : AudioStreamPlayer2D
+
+* Présentation du noeud `AudioStreamPlayer2D`
+* Explication sur l’importation des sons (WAV, OGG...)
+* Déclenchement de sons via GDScript
+
+### TP : Effets sonores
+
+| Étape | Description                                                                          |
+| ----- | ------------------------------------------------------------------------------------ |
+| 1     | Dans la scène `niveau1`, ajouter un noeud `AudioStreamPlayer2D` |
+| 2     | Dans l'inspecteur, charger un son en cliquant sur `Stream : <vide>` et en cliquant sur `Charger Rapidement`|
+| 3     | Toujours dans l'inspecteur, cocher `Playing` pour écouter le son et décocher quand le son convient |
+| 4 | Cocher `Autoplay` pour lancer le son dès le début du niveau|
+
+---
+
+## Dynamisation du joueur
+
+### Cours : Dynamisation
+
+* Objectif : Ne pas avoir à revenir dans le code à chaque fois
+* Utilisation de @export
+* Notion @tool
+
+
+### TP : Dynamisation du joueur
+
+| Étape | Description                                               |
+| ----- | --------------------------------------------------------- |
+| 1     | Aller dans la scène du joueur                             |
+| 2     | Ouvrir le script du joueur                                |
+| 3     | Remplacer le script par le suivant :                      |
+
+```gdscript
+@tool
+extends CharacterBody2D
+
+@export var gravity: float = 1000
+@export var jump_strength: float = 600
+@export var player_scale: Vector2 = Vector2(2, 2)
+
+@export var sprite_texture: Texture2D:
+	set(value):
+		sprite_texture = value
+		if sprite and sprite_texture:
+			sprite.texture = sprite_texture
+
+@onready var sprite: Sprite2D = $Sprite2D
+
+func _process(delta):
+	if Engine.is_editor_hint():<>
+		# Applique les changements dans l'éditeur
+		scale = player_scale
+	else:
+		# Exécution normale en jeu
+		velocity.y += gravity * delta
+		if Input.is_action_just_pressed("ui_accept"):
+			velocity.y = - jump_strength
+
+		rotation_degrees = clamp(velocity.y * 0.1, -30, 90)
+		move_and_slide()
+
+```
+
+| Étape | Description                                                                                               |
+| ----- | --------------------------------------------------------------------------------------------------------- |
+| 4     | Retourner dans la scène `niveau1` et cliquer sur `joueur`|
+| 5     | Modifier les paramètres du joueur |
+
+- Tester avec F5
+
+### Résultat
+
+Il est possible de modifier :
+- La gravité, la force du saut et la taille du joueur (dans le noeud `joueur` de la scène `niveau1` directement)
+- Le temps d'apparition des tuyaux (dans le `Timer` du `niveau1`)
+- L'écart entre les tuyaux (en hauteur) et leur vitesse (dans la scène `tuyau` en cliquand sur le noeud principal en haut de l'aborescence)
+- Le son du niveau (En cliquant sur le `AudioStreamPlayer2D` et en sélectionnant un nouveau son)
+- Le décor (avec les TileMapLayer)
