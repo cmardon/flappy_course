@@ -205,8 +205,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 | 4     | Tout en bas de l'éditeur, cliquer sur le bouton **"TileSet"** pour ouvrir l’éditeur de tuiles|
 | 5     | Dans le système de fichiers (en bas à gauche de l'écran), rechercher une image de tileset, puis la **glisser dans le rectangle "Tile source"** de l’éditeur TileSet. Puis cliquer sur oui dans la fenêtre qui apparaît|
 
-Exemple de TileSet valide : 
-![tileset](https://github.com/cmardon/flappy_course/blob/main/Sunny%20Land%20Collection%20Files/Assets/Environments/Day-Platformer/PNG/tileset.png)
+Exemple de TileSet valide : ![tileset](Sunny Land Collection Files/Assets/Environments/Day-Platformer/PNG/tileset.png)
 
 | Étape | Description|
 | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -240,9 +239,7 @@ func _process(delta):
     if Input.is_action_just_pressed("ui_accept"):
         velocity.y = jump_strength
 
-    # Rotation selon la vitesse
     rotation_degrees = clamp(velocity.y * 0.1, -30, 90)
-
     move_and_slide()
 ```
 
@@ -258,14 +255,56 @@ func _process(delta):
 * Explication sur l’importation des sons (WAV, OGG...)
 * Déclenchement de sons via GDScript
 
-### TP : Effets sonores
+### TP : Musique de fond
 
 | Étape | Description                                                                          |
 | ----- | ------------------------------------------------------------------------------------ |
 | 1     | Dans la scène `niveau1`, ajouter un noeud `AudioStreamPlayer2D` |
-| 2     | Dans l'inspecteur, charger un son en cliquant sur `Stream : <vide>` et en cliquant sur `Charger Rapidement`|
-| 3     | Toujours dans l'inspecteur, cocher `Playing` pour écouter le son et décocher quand le son convient |
+| 2     | Aller dans le dossier `SunnyLand Music/` et double cliquer sur une musique pour l'écouter puis choisir une musique |
+| 3     | Dans l'inspecteur après avoir cliqué sur l'`AudioStreamPlayer2D` de la scène, glisser la musique dans `Stream : <vide>`|
 | 4 | Cocher `Autoplay` pour lancer le son dès le début du niveau|
+
+### TP : Son de saut
+
+| Étape | Description                                                                          |
+| ----- | ------------------------------------------------------------------------------------ |
+| 1     | Aller dans la scène `joueur`|
+| 2     | Ajouter un noeud `AudioStreamPlayer2D` et renomme le `son_saut` (sans majuscules) |
+| 3     | Aller dans le dossier `sfx/platformer_jumping`|
+| 4     | Glisser un son de saut dans le champ `Stream : <vide>` de l'inspecteur du noeud son_saut |
+| 5     | Dans le script du joueur, modifier la fonction _process() comme ceci:|
+
+```gdscript
+func _process(delta):
+    velocity.y += gravity * delta
+    if Input.is_action_just_pressed("ui_accept"):
+        velocity.y = jump_strength
+        $son_saut.play()
+
+    rotation_degrees = clamp(velocity.y * 0.1, -30, 90)
+    move_and_slide()
+```
+
+### TP : Son de mort
+
+| Étape | Description                                                                          |
+| ----- | ------------------------------------------------------------------------------------ |
+| 1     | Aller dans la scène `tuyau`|
+| 2     | Ajouter un noeud `AudioStreamPlayer2D` et renomme le `son_mort` (sans majuscules) |
+| 3     | Aller dans le dossier `sfx/gameover`|
+| 4     | Glisser un son de mort dans le champ `Stream : <vide>` de l'inspecteur du noeud son_mort |
+| 5     | Dans le script du tuyau, modifier la fonction _on_area_2d_body_entered() comme ceci:|
+
+```gdscript
+func _on_area_2d_body_entered(body: Node2D) -> void:
+    if body is CharacterBody2D:
+        $son_mort.process_mode = Node.PROCESS_MODE_ALWAYS
+        get_tree().paused = true
+        $son_mort.play()
+        await get_tree().create_timer($son_mort.stream.get_length(), true).timeout
+        get_tree().paused = false
+        get_tree().change_scene_to_file("res://src/niveau1.tscn")
+```
 
 ---
 
@@ -303,17 +342,16 @@ extends CharacterBody2D
 @onready var sprite: Sprite2D = $Sprite2D
 
 func _process(delta):
-	if Engine.is_editor_hint():<>
-		# Applique les changements dans l'éditeur
-		scale = player_scale
-	else:
+	scale = player_scale
+	if !Engine.is_editor_hint():
 		# Exécution normale en jeu
 		velocity.y += gravity * delta
 		if Input.is_action_just_pressed("ui_accept"):
-			velocity.y = - jump_strength
-
+			velocity.y = -jump_strength
+			$AudioStreamPlayer2D.play()
 		rotation_degrees = clamp(velocity.y * 0.1, -30, 90)
 		move_and_slide()
+
 
 ```
 
