@@ -358,3 +358,53 @@ Il est possible de modifier :
 - L'écart entre les tuyaux (en hauteur) et leur vitesse (dans la scène `tuyau` en cliquand sur le noeud principal en haut de l'aborescence)
 - Le son du niveau (En cliquant sur le `AudioStreamPlayer2D` et en sélectionnant un nouveau son)
 - Le décor (avec les TileMapLayer)
+
+# Ressources Godot
+## Documentation : 
+- [Godot](https://docs.godotengine.org/en/stable/)
+
+## Formations
+- [Bases Godot](https://docs.godotengine.org/en/stable/getting_started/step_by_step/index.html)
+- [Learning path](https://www.gdquest.com/tutorial/godot/learning-paths/beginner/)
+- [Bases GD Script](https://gdquest.github.io/learn-gdscript/)
+- [How to make a Video Game - Godot Beginner Tutorial](https://www.youtube.com/watch?v=LOhfqjmasi0)
+- [How to Program in Godot](https://www.youtube.com/watch?v=e1zJS31tr88)
+- [GDQuest – First Game](https://www.youtube.com/watch?v=GwCiGixlqiU)
+- [Tuto projet X.R. Godot](https://www.youtube.com/watch?v=shbHGhkh4NM)
+- [Muddy Wolf VR for Godot](https://www.youtube.com/watch?v=fxZoXfX4oBo&list=PLfX6C2dxVyLxXl3gJwakzdqRaV7WKlqFR)
+- [JumboGamedev](https://www.youtube.com/@JumboGamedev/videos)
+- [Bitlytic](https://www.youtube.com/@Bitlytic)
+- [Godot Control Node (UI) Masterclass](https://www.youtube.com/watch?v=5Hog6a0EYa0)
+
+## Chaines Youtube
+- [GodotEngine](https://www.youtube.com/@GodotEngineOfficial)
+- [StayAtHomeDev](https://www.youtube.com/channel/UCDshKIMtFjYreCzApleuV8w)
+- [GDQuest](https://www.youtube.com/c/gdquest)
+- [Godotneers](https://www.youtube.com/@godotneers)
+- [Lukky](https://www.youtube.com/@lukky./videos (à voir surtout la série everynodes))
+- [MrElipteach](https://www.youtube.com/@mrelipteach/videos)
+- [Crigz Vs Game Dev](https://www.youtube.com/@crigz/videos)
+- [Gwizz](https://www.youtube.com/@Gwizz1027/videos) 
+- [FinePointCGI](https://www.youtube.com/@FinePointCGI/videos) 
+- [Zenva](https://www.youtube.com/@Zenva/videos) 
+- [Bonkahe](https://www.youtube.com/@Bonkahe/videos) 
+- [Nad Labs](https://www.youtube.com/@NADLABS/videos)
+- [Pixezy](https://www.youtube.com/@pixezy8962/videos)
+
+## Assets
+- [Librairie assets Godot](https://godotengine.org/asset-library/asset) 
+- [Kenney](https://www.kenney.nl/) 
+- [Starter Kit](https://godotengine.org/asset-library/asset?user=Kenney) 
+- [Godot Assets Library](https://godotassetlibrary.com/)
+- [Datalogue ](https://godotassetlibrary.com/asset/RMiyDF/datalogue)
+- [CurveMesh3D](https://godotassetlibrary.com/asset/pGIkY2/curvemesh3d)
+- [Draw 3D](https://godotassetlibrary.com/asset/hae3W3/draw3d)
+- [Godot Shaders](https://godotshaders.com/ )
+- [Godot Jolt](https://github.com/godot-jolt/godot-jolt)
+- [Sample Gltf](https://github.com/KhronosGroup/glTF-Sample-Models)
+
+## Général
+- [Game UI Data Base](https://www.gameuidatabase.com/index.php)
+- [Microsoft Accessibility Guidelines](https://learn.microsoft.com/en-us/gaming/accessibility)
+- [GDC Game Developper Conference](https://www.youtube.com/@Gdconf)
+
