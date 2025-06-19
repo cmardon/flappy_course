@@ -30,7 +30,7 @@
 |-------|-------------|
 | 1 | Dans `src/`, créer une nouvelle scène nommée « joueur » avec comme noeud de base « CharacterBody2D » |
 | 2 | Dans la scène, ajouter un sprite 2D |
-| 3 | Attacher une texture : Sélectionner une texture dans « Sunny Land Collection Files/Assets/Characters/Enemies and NPC/ » |
+| 3 | Attacher une texture : Sélectionner une texture dans `Sunny Land Collection Files/Assets/Characters/` |
 | 4 | Ajouter un script au joueur et y coller le code de chute libre |
 ```gdscript
 extends CharacterBody2D
