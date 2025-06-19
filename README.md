@@ -17,9 +17,6 @@
 | 2 | Dézippe le fichier (si téléchargé en .zip) |
 | 3 | Ouvrir Godot 4.4.x et importer le projet |
 
-### Pause : Questions/Réponses
-- Vérifier que tout le monde a réussi à importer le projet
-- Répondre aux questions éventuelles
 ---
 ## Création du joueur
 
@@ -60,9 +57,6 @@ func _process(delta):
 |-------|-------------|
 | 7 | Tester avec F6 |
 
-### Pause : Questions/Réponses
-- Vérifier que tout le monde a réussi à créer le joueur
-- Répondre aux questions éventuelles
 ---
 ## Création du niveau
 
@@ -88,9 +82,6 @@ func _process(delta):
 |-------|-------------|
 | 1 | Ouvrir la scène `src/tuyau.tscn` |
 
-### Pause : Questions/Réponses
-- Vérifier que tout le monde a réussi à ouvrir la scène tuyau
-- Répondre aux questions éventuelles
 ---
 ## Ajout de spawner à tuyau
 
@@ -142,9 +133,6 @@ func generer_tuyau():
 | 2 | Dans l’inspecteur, cliquer sur ```Shape : <vide>``` pour sélectionner CircleShape2D |
 | 3 | Adapter la taille de la boîte de collision pour qu'elle recouvre globalement le joueur |
 
-### Pause : Questions/Réponses
-- Vérifier que tout le monde a réussi à ajouter les collisions
-- Répondre aux questions éventuelles
 ---
 ## Ajout de collision tuyaux
 
