@@ -28,7 +28,7 @@
 ### TP : Création du joueur
 | Étape | Description |
 |-------|-------------|
-| 1 | Dans `src/`, créer une nouvelle scène nommée « joueur » avec comme noeud de base « CharacterBody2D » |
+| 1 | Dans `src/`, créer une nouvelle scène nommée ` joueur ` avec comme noeud de base `CharacterBody2D` |
 | 2 | Dans la scène, ajouter un sprite 2D |
 | 3 | Attacher une texture : Sélectionner une texture dans `Sunny Land Collection Files/Assets/Characters/` |
 | 4 | Ajouter un script au joueur et y coller le code de chute libre |
@@ -68,8 +68,8 @@ func _process(delta):
 ### TP : Création du niveau
 | Étape | Description |
 |-------|-------------|
-| 1 | Dans `src/`, créer une nouvelle scène 2D nommée « niveau1 » |
-| 2 | Glisser `joueur.tscn` au milieu de la scène `niveau1` et changer sa « scale » dans l'inspecteur en x:2 et y:2 |
+| 1 | Dans `src/`, créer une nouvelle scène 2D nommée `niveau1` |
+| 2 | Glisser `joueur.tscn` au milieu de la scène `niveau1` et changer le paramètre `scale` dans l'inspecteur en x:2 et y:2 |
 | 3 |  Tester avec F5 en sélectionnant la scène actuelle comme scène principale |
 ---
 ## Découverte de la scène tuyau.tscn
@@ -92,10 +92,10 @@ func _process(delta):
 ### TP : Ajout de spawner à tuyau
 | Étape | Description |
 |-------|-------------|
-| 1 | Aller dans la scène « niveau1 » |
-| 2 | Ajouter un noeud 2D nommé « generateur_tuyau » |
+| 1 | Aller dans la scène ` niveau1 ` |
+| 2 | Ajouter un noeud 2D nommé ` generateur_tuyau ` |
 | 3 | Déplacer le noeud à droite de l’écran avec l'outil de déplacement |
-| 4 | Ajouter un Timer et activer « autostart » |
+| 4 | Ajouter un Timer et activer ` autostart ` |
 | 5 | Attacher un script au générateur et coller le code fourni |
 ```gdscript
 extends Node2D
@@ -129,7 +129,7 @@ func generer_tuyau():
 ### TP : Ajout des collisions joueur
 | Étape | Description |
 |-------|-------------|
-| 1 | Aller sur la scène « Joueur » et ajouter un « CollisionShape2D » |
+| 1 | Aller sur la scène ` Joueur ` et ajouter un ` CollisionShape2D ` |
 | 2 | Dans l’inspecteur, cliquer sur ```Shape : <vide>``` pour sélectionner CircleShape2D |
 | 3 | Adapter la taille de la boîte de collision pour qu'elle recouvre globalement le joueur |
 
@@ -143,9 +143,9 @@ func generer_tuyau():
 ### TP : Ajout de collision tuyaux
 | Étape | Description |
 |-------|-------------|
-| 1 | Aller sur la scène « Tuyau » et sélectionner `tuyau_haut` |
-| 2 | Ajouter un noeud « StaticBody2D » |
-| 3 | Ajouter une « CollisionShape2D » au « StaticBody2D » |
+| 1 | Aller sur la scène ` Tuyau ` et sélectionner `tuyau_haut` |
+| 2 | Ajouter un noeud ` StaticBody2D ` |
+| 3 | Ajouter une ` CollisionShape2D ` au ` StaticBody2D ` |
 | 4 | Placer la boîte de collision au bon endroit en l’adaptant à la forme du tuyau du haut |
 | 5 | Recommencer la même manipulation sur le tuyau du bas |
 ---
@@ -158,17 +158,17 @@ func generer_tuyau():
 ### TP : Ajout de détection tuyaux
 | Étape | Description |
 |-------|-------------|
-| 1 | Remplacer les StaticBody2D par des « Area2D » |
+| 1 | Remplacer les StaticBody2D par des ` Area2D ` |
 
 Faisable en recommençant les étapes de la partie précédente, mais avec une Area2D plutôt qu'un StaticBody2D :
 | Étape | Description |
 |-------|-------------|
-| 1 | Aller sur la scène « Tuyau » et sélectionner `tuyau_haut` |
-| 2 | Ajouter un noeud « Area2D » |
-| 3 | Ajouter une « CollisionShape2D » au « Area2D » |
+| 1 | Aller sur la scène ` Tuyau ` et sélectionner `tuyau_haut` |
+| 2 | Ajouter un noeud ` Area2D ` |
+| 3 | Ajouter une ` CollisionShape2D ` au ` Area2D ` |
 | 4 | Placer la boîte de collision au bon endroit en l’adaptant à la forme du tuyau du haut |
 | 5 | Recommencer la même manipulation sur le tuyau du bas |
-| 6 | Sélectionner une Area2D puis dans l’inspecteur, cliquer sur l’onglet « Noeud » et double cliquer sur « body_entered » puis connecter. Enfin, remplacer « pass » par le code fourni |
+| 6 | Sélectionner une Area2D puis dans l’inspecteur, cliquer sur l’onglet ` Noeud ` et double cliquer sur ` body_entered ` puis connecter. Enfin, remplacer ` pass ` par le code fourni |
 | 7 | Connecter l'autre Area2D de la même manière |
 ```gdscript
 func _on_area_2d_body_entered(body: Node2D) -> void:
