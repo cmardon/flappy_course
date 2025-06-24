@@ -8,19 +8,21 @@
 
 | Étape | Description |
 |-------|-------------|
-| 1 | Aller récupérer le projet vide à l’adresse suivante : https://github.com/cmardon/flappy_course |
-| 2 | Dézippe le fichier (si téléchargé en .zip) |
-| 3 | Ouvrir Godot 4.4.x et importer le projet |
+| 1 | Récupérer le projet sur le PC en ouvrant un terminal en appuyant simultanément sur les touches `Ctrl` `Alt` et `T` |
+| 2 | Écrire (ou copier-coller) la commande suivante dans le terminal : `git clone https://github.com/cmardon/flappy_course` (Attention, Ctrl+V ne fonctionne pas dans un terminal ! Utiliser Clic Droit puis Coller)|
+| 3 | Ouvrir Godot 4.4.x avec la commande suivante dans le terminal : `flatpak run org.godotengine.Godot`|
+| 4 | Une fois Godot ouvert, scanner le projet en cliquant sur le bouton `Importer`, sélectionner le dossier `flappy_course` et double cliquer sur `project.godot` et valider en cliquant sur `importer`|
 
 ---
 ## Création du joueur
 
 | Étape | Description |
 |-------|-------------|
-| 1 | Dans `src/`, créer une nouvelle scène nommée ` joueur ` avec comme noeud de base `CharacterBody2D` |
-| 2 | Dans la scène, ajouter un sprite 2D |
-| 3 | Attacher une texture : Sélectionner une texture dans `Sunny Land Collection Files/Assets/Characters/` |
-| 4 | Ajouter un script au joueur et y coller le code de chute libre |
+| 1 | Créer une nouvelle scène `joueur`. (dans le `Système de fichiers` en bas à gauche, faire Clic Droit sur le dossier `src` et sélectionner `Créer Nouveau` puis `Scène`. Saisir "joueur" comme `Nom de la scène` puis cliquer `OK`)|
+| 2 | Dans ajouter un noeud `CharacterBody2D` (Clic Droit sur le noeud `Joueur`, puis `Ajouter un noeud enfant` et chercher `CharacterBody2D` dans la barre de recherche) |
+| 3 | Dans la scène, ajouter un noeud `Sprite2D` **Sur le noeud CharacterBody2D** |
+| 4 | Attacher une texture : Sélectionner une texture de personnage dans le dossier `Sunny Land Collection Files/Assets/Characters/`. Une fois le personnage choisi, cliquer sur le noeud `Sprite2D` et glisser la texture dans l'onglet `Texture : <vide>` |
+| 5 | Ajouter un script au `CharacterBody2D` (avec Clic Droit sur `CharacterBody2D`, `attacher un script`, `créer`) et y coller le code suivant |
 ```gdscript
 extends CharacterBody2D
 
@@ -33,8 +35,8 @@ func _process(delta):
 ```
 | Étape | Description |
 |-------|-------------|
-| 5 | Tester avec F6 |
-| 6 | Modifier `_process` pour y inclure le saut |
+| 6 | Tester avec F6 |
+| 7 | Modifier `_process` pour y inclure le saut |
 ```gdscript
 func _process(delta):
     velocity.y += gravity * delta
