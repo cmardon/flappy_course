@@ -6,11 +6,6 @@
 ---
 ## Récupération du projet
 
-### Cours : Introduction à Godot
-- Présentation de l'interface de Godot
-- Explication des projets et des scènes
-
-### TP : Récupération du projet
 | Étape | Description |
 |-------|-------------|
 | 1 | Aller récupérer le projet vide à l’adresse suivante : https://github.com/cmardon/flappy_course |
@@ -20,12 +15,6 @@
 ---
 ## Création du joueur
 
-### Cours : Les bases de Godot
-- Explication des noeuds et des scènes
-- Introduction aux scripts GDScript
-- Notions de base sur les inputs
-
-### TP : Création du joueur
 | Étape | Description |
 |-------|-------------|
 | 1 | Dans `src/`, créer une nouvelle scène nommée ` joueur ` avec comme noeud de base `CharacterBody2D` |
@@ -60,36 +49,15 @@ func _process(delta):
 ---
 ## Création du niveau
 
-### Cours : Les scènes et les noeuds
-- Explication des scènes et des noeuds
-- Introduction à la manipulation des objets dans une scène
-- Inspecteur
-
-### TP : Création du niveau
 | Étape | Description |
 |-------|-------------|
 | 1 | Dans `src/`, créer une nouvelle scène 2D nommée `niveau1` |
 | 2 | Glisser `joueur.tscn` au milieu de la scène `niveau1` et changer le paramètre `scale` dans l'inspecteur en x:2 et y:2 |
 | 3 |  Tester avec F5 en sélectionnant la scène actuelle comme scène principale |
----
-## Découverte de la scène tuyau.tscn
-
-### Explications
-- Scène préfaite avec option dynamiques
-
-### TP : Découverte de la scène tuyau.tscn
-| Étape | Description |
-|-------|-------------|
-| 1 | Ouvrir la scène `src/tuyau.tscn` |
 
 ---
 ## Ajout de spawner à tuyau
 
-### Cours : Les Timers et les Signaux
-- Explication des Timers et de leur utilisation
-- Introduction aux signaux et à leur connexion
-
-### TP : Ajout de spawner à tuyau
 | Étape | Description |
 |-------|-------------|
 | 1 | Aller dans la scène ` niveau1 ` |
@@ -122,11 +90,6 @@ func generer_tuyau():
 ---
 ## Ajout des collisions joueur
 
-### Cours : Les Collisions
-- Explication des CollisionShape2D
-- Introduction aux différentes formes de collisions
-
-### TP : Ajout des collisions joueur
 | Étape | Description |
 |-------|-------------|
 | 1 | Aller sur la scène ` Joueur ` et ajouter un ` CollisionShape2D ` |
@@ -136,11 +99,6 @@ func generer_tuyau():
 ---
 ## Ajout de collision tuyaux
 
-### Cours : Les StaticBody2D et les CollisionShape2D
-- Explication des StaticBody2D et des CollisionShape2D (leur rôle)
-- Introduction aux différentes manières de gérer les collisions
-
-### TP : Ajout de collision tuyaux
 | Étape | Description |
 |-------|-------------|
 | 1 | Aller sur la scène ` Tuyau ` et sélectionner `tuyau_haut` |
@@ -151,11 +109,6 @@ func generer_tuyau():
 ---
 ## Ajout de détection tuyaux
 
-### Cours : Les Area2D et les Signaux
-- Explication des Area2D et de leur utilisation (son rôle)
-- Introduction aux signaux et à leur connexion
-
-### TP : Ajout de détection tuyaux
 | Étape | Description |
 |-------|-------------|
 | 1 | Remplacer les StaticBody2D par des ` Area2D ` |
@@ -178,12 +131,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 - Tester avec F5
 ---
 ## Ajout du fond avec TileMap
-
-### Cours : Les TileMaps
-
-* Introduction aux TileMaps
-
-### TP : Ajout d’un fond avec TileMap
 
 | Étape | Description|
 | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -208,14 +155,6 @@ Exemple de TileSet valide : ![tileset](https://github.com/cmardon/flappy_course/
 ---
 ## Effet de rotation du joueur
 
-### Cours : Transformations et animation manuelle
-
-* Présentation de la propriété `rotation_degrees`
-* Utilisation de la fonction `clamp()` pour limiter l'angle
-* Explication de l'effet de "bascule" pendant la chute et le saut
-
-### TP : Ajout de la rotation
-
 | Étape | Description                                  |
 | ----- | -------------------------------------------- |
 | 1     | Aller dans le script du joueur               |
@@ -237,13 +176,7 @@ func _process(delta):
 
 ## Ajout d'effets sonores
 
-### Cours : AudioStreamPlayer2D
-
-* Présentation du noeud `AudioStreamPlayer2D`
-* Explication sur l’importation des sons (WAV, OGG...)
-* Déclenchement de sons via GDScript
-
-### TP : Musique de fond
+### Musique de fond
 
 | Étape | Description                                                                          |
 | ----- | ------------------------------------------------------------------------------------ |
@@ -252,7 +185,7 @@ func _process(delta):
 | 3     | Dans l'inspecteur après avoir cliqué sur l'`AudioStreamPlayer2D` de la scène, glisser la musique dans `Stream : <vide>`|
 | 4 | Cocher `Autoplay` pour lancer le son dès le début du niveau|
 
-### TP : Son de saut
+### Son de saut
 
 | Étape | Description                                                                          |
 | ----- | ------------------------------------------------------------------------------------ |
@@ -273,7 +206,7 @@ func _process(delta):
     move_and_slide()
 ```
 
-### TP : Son de mort
+### Son de mort
 
 | Étape | Description                                                                          |
 | ----- | ------------------------------------------------------------------------------------ |
@@ -297,15 +230,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 ---
 
 ## Dynamisation du joueur
-
-### Cours : Dynamisation
-
-* Objectif : Ne pas avoir à revenir dans le code à chaque fois
-* Utilisation de @export
-* Notion @tool
-
-
-### TP : Dynamisation du joueur
 
 | Étape | Description                                               |
 | ----- | --------------------------------------------------------- |
