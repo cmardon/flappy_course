@@ -33,10 +33,11 @@ func _process(delta):
     velocity.y += gravity * delta
     move_and_slide()
 ```
+- Tester avec F6 (Le personnage est censé tomber dans le vide à gauche de l'écran)
+
 | Étape | Description |
 |-------|-------------|
-| 6 | Tester avec F6 |
-| 7 | Modifier `_process` pour y inclure le saut |
+| 6 | Réouvrir le script et modifier la fonction `_process` pour y inclure un saut à l'appui de la touche `Espace` |
 ```gdscript
 func _process(delta):
     velocity.y += gravity * delta
@@ -44,18 +45,18 @@ func _process(delta):
         velocity.y = -jump_strength
     move_and_slide()
 ```
-| Étape | Description |
-|-------|-------------|
-| 7 | Tester avec F6 |
+
+- Tester avec F6 (Le personnage tombe et remonte quand on appuit sur `Espace`)
 
 ---
 ## Création du niveau
 
 | Étape | Description |
 |-------|-------------|
-| 1 | Dans `src/`, créer une nouvelle scène 2D nommée `niveau1` |
-| 2 | Glisser `joueur.tscn` au milieu de la scène `niveau1` et changer le paramètre `scale` dans l'inspecteur en x:2 et y:2 |
-| 3 |  Tester avec F5 en sélectionnant la scène actuelle comme scène principale |
+| 1 | Dans `src/`, créer une nouvelle scène nommée `niveau1` (sans espace ni majuscule) |
+| 2 | Glisser `joueur.tscn` au milieu de la scène `niveau1` et changer sa taille modifiant le paramètre `scale` dans l'inspecteur (Cliquer sur le noeud `joueur`, puis dans l'inspecteur développer la section `Tranform` et modifier les valeurs de `Scale` |
+| 3 | Dans le `Système de fichiers`, faire Clic Droit sur `niveau1.tscn` et sélectionner `Définir comme scène principale` (Appuyer sur `F5` permet maintenant de lancer le jeu)|
+| 4 | Tester avec F5 (Encore un fois, le personnage tombe et remonte quand on appuit sur `Espace` mais au milieu de l'écran cette fois-ci) |
 
 ---
 ## Ajout de spawner à tuyau
@@ -63,10 +64,9 @@ func _process(delta):
 | Étape | Description |
 |-------|-------------|
 | 1 | Aller dans la scène ` niveau1 ` |
-| 2 | Ajouter un noeud 2D nommé ` generateur_tuyau ` |
-| 3 | Déplacer le noeud à droite de l’écran avec l'outil de déplacement |
-| 4 | Ajouter un Timer et activer ` autostart ` |
-| 5 | Attacher un script au générateur et coller le code fourni |
+| 2 | Ajouter un noeud de type `Node2D` nommé `generateur_tuyau`, comme son nom l'indique, ce noeud servira à faire apparaître les tuyaux |
+| 3 | Déplacer le générateur à droite dans la fenêtre principale |
+| 4 | Attacher un script au `generateur_tuyau` et y coller le code fourni |
 ```gdscript
 extends Node2D
 
@@ -81,56 +81,42 @@ func _on_timer_timeout():
 func generer_tuyau():
     var pipe = scene_tuyau.instantiate()
     add_child(pipe)
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+    if body is CharacterBody2D:
+        get_tree().change_scene_to_file("res://src/niveau1.tscn")
 ```
+- Tester avec F5 : Un tuyau devrait apparaître et partir vers la gauche.
+
 | Étape | Description |
 |-------|-------------|
-| 6 | Connecter le signal `timeout` du Timer en cliquant sur le Timer puis dans l'inspecteur, cliquer sur Noeud > timeout() > connecter > generateur tuyau > connecter |
-| 7 | Modifier le timer pour changer la vitesse d’apparition |
-| 8 | Ajuster la taille du générateur à 2 (dans l'inspecteur, scale x:2 y:2)|
+| 5 | Ajouter un noeud `Timer` et activer `autostart` dans l'inspecteur |
+| 6 | Connecter le signal `timeout` du Timer en cliquant sur le Timer puis dans l'inspecteur, cliquer sur `Noeud > timeout() > connecter > generateur tuyau > connecter` |
 
-- Tester avec F5
+- Tester avec F5 : Plusieurs tuyaux devraient apparaître. Modifier le timer pour changer la vitesse d’apparition (dans l'inspecteur, changer `Wait Time`). Si les tuyaux sont trop petits, modifier la `Scale` du noeud `generateur_tuyau` (Cliquer sur `generateur_tuyau` > Inspecteur > `Transform` > `Scale`).
 ---
 ## Ajout des collisions joueur
 
 | Étape | Description |
 |-------|-------------|
-| 1 | Aller sur la scène ` Joueur ` et ajouter un ` CollisionShape2D ` |
-| 2 | Dans l’inspecteur, cliquer sur ```Shape : <vide>``` pour sélectionner CircleShape2D |
+| 1 | Aller sur la scène ` Joueur ` et ajouter un noeud `CollisionShape2D` |
+| 2 | Dans l’inspecteur du noeud `CollisionShape2D`, cliquer sur `Shape : <vide>` pour sélectionner CircleShape2D |
 | 3 | Adapter la taille de la boîte de collision pour qu'elle recouvre globalement le joueur |
 
----
-## Ajout de collision tuyaux
-
-| Étape | Description |
-|-------|-------------|
-| 1 | Aller sur la scène ` Tuyau ` et sélectionner `tuyau_haut` |
-| 2 | Ajouter un noeud ` StaticBody2D ` |
-| 3 | Ajouter une ` CollisionShape2D ` au ` StaticBody2D ` |
-| 4 | Placer la boîte de collision au bon endroit en l’adaptant à la forme du tuyau du haut |
-| 5 | Recommencer la même manipulation sur le tuyau du bas |
 ---
 ## Ajout de détection tuyaux
 
 | Étape | Description |
 |-------|-------------|
-| 1 | Remplacer les StaticBody2D par des ` Area2D ` |
-
-Faisable en recommençant les étapes de la partie précédente, mais avec une Area2D plutôt qu'un StaticBody2D :
-| Étape | Description |
-|-------|-------------|
 | 1 | Aller sur la scène ` Tuyau ` et sélectionner `tuyau_haut` |
-| 2 | Ajouter un noeud ` Area2D ` |
-| 3 | Ajouter une ` CollisionShape2D ` au ` Area2D ` |
+| 2 | Y ajouter un noeud ` Area2D ` |
+| 3 | Ajouter une ` CollisionShape2D ` au ` Area2D ` et en cliquand sur `Shape: <vide>`, choisir un `RectangleShape2D` |
 | 4 | Placer la boîte de collision au bon endroit en l’adaptant à la forme du tuyau du haut |
 | 5 | Recommencer la même manipulation sur le tuyau du bas |
-| 6 | Sélectionner une Area2D puis dans l’inspecteur, cliquer sur l’onglet ` Noeud ` et double cliquer sur ` body_entered ` puis connecter. Enfin, remplacer ` pass ` par le code fourni |
+| 6 | Sélectionner une Area2D puis dans l’inspecteur, cliquer sur l’onglet ` Noeud ` et double cliquer sur ` body_entered ` puis `connecter`.|
 | 7 | Connecter l'autre Area2D de la même manière |
-```gdscript
-func _on_area_2d_body_entered(body: Node2D) -> void:
-    if body is CharacterBody2D:
-        get_tree().change_scene_to_file("res://src/niveau1.tscn")
-```
-- Tester avec F5
+
+- Tester avec F5, toucher un tuyau doit faire recommencer le niveau
 ---
 ## Ajout du fond avec TileMap
 
