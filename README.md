@@ -16,6 +16,9 @@
 ---
 ## Création du joueur
 
+Voici à quoi ressemble un assemblage de noeuds (pour ici former le joueur), utiliser cette image pour comparer peut être pratique ;)
+![Noeuds joueur](https://github.com/cmardon/flappy_course/blob/main/.images_consignes/arbo_joueur.png)
+
 | Étape | Description |
 |-------|-------------|
 | 1 | Créer une nouvelle scène `joueur`. (dans le `Système de fichiers` en bas à gauche, faire Clic Droit sur le dossier `src` et sélectionner `Créer Nouveau` puis `Scène`. Saisir "joueur" comme `Nom de la scène` puis cliquer `OK`)|
@@ -65,7 +68,7 @@ func _process(delta):
 |-------|-------------|
 | 1 | Aller dans la scène ` niveau1 ` |
 | 2 | Ajouter un noeud de type `Node2D` nommé `generateur_tuyau`, comme son nom l'indique, ce noeud servira à faire apparaître les tuyaux |
-| 3 | Déplacer le générateur à droite dans la fenêtre principale |
+| 3 | Déplacer le générateur à droite dans la fenêtre principale ![Déplacement du générateur](https://github.com/cmardon/flappy_course/blob/main/.images_consignes/generateur_a_droite.png)|
 | 4 | Attacher un script au `generateur_tuyau` et y coller le code fourni |
 ```gdscript
 extends Node2D
@@ -316,3 +319,6 @@ Il est possible de modifier :
 - [Microsoft Accessibility Guidelines](https://learn.microsoft.com/en-us/gaming/accessibility)
 - [GDC Game Developper Conference](https://www.youtube.com/@Gdconf)
 
+## Correction
+
+- [Video correction du TP]()
