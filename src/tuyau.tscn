@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=4 uid="uid://cjiplj6vfwv88"]
+[gd_scene load_steps=5 format=4 uid="uid://cjiplj6vfwv88"]
 
-[ext_resource type="Script" uid="uid://cqx32e7pa55u8" path="res://src/tuyau.gd" id="1_35qlm"]
+[ext_resource type="Script" uid="uid://bc548qigotcn" path="res://src/tuyau.gd" id="1_35qlm"]
 [ext_resource type="Texture2D" uid="uid://bcotrisa2t08r" path="res://Sunny Land Collection Files/Assets/Environments/Day-Platformer/PNG/tileset.png" id="2_q35di"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5ri0p"]
@@ -115,11 +115,8 @@ texture = ExtResource("2_q35di")
 [sub_resource type="TileSet" id="TileSet_r1aqw"]
 sources/0 = SubResource("TileSetAtlasSource_5ri0p")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_35qlm"]
-size = Vector2(32, 463)
-
 [node name="Tuyau" type="Node2D"]
-position = Vector2(0, 69.9745)
+position = Vector2(0, 36.2432)
 script = ExtResource("1_35qlm")
 
 [node name="tuyau_haut" type="TileMapLayer" parent="."]
@@ -136,13 +133,3 @@ position = Vector2(0, -10)
 rotation = 3.14159
 tile_map_data = PackedByteArray("AAD///P/AAAOAAUAAAAAAPP/AAARAAQAAAD///T/AAAOAAUAAAAAAPT/AAAPAAUAAAD///X/AAARAAQAAAAAAPX/AAAPAAUAAAD///b/AAAOAAUAAAAAAPb/AAAPAAUAAAD///f/AAAOAAUAAAAAAPf/AAARAAQAAAD///j/AAAOAAUAAAAAAPj/AAAPAAUAAAD///n/AAAOAAUAAAAAAPn/AAARAAQAAAD///r/AAAOAAUAAAAAAPr/AAAPAAUAAAD///v/AAARAAQAAAAAAPv/AAAPAAUAAAD///z/AAAOAAUAAAAAAPz/AAAPAAUAAAD///3/AAARAAQAAAAAAP3/AAARAAQAAAD//+H/AAAOAAUAAAAAAOH/AAAPAAUAAAD//+L/AAARAAQAAAAAAOL/AAAPAAUAAAD//+P/AAARAAQAAAAAAOP/AAARAAQAAAD//+T/AAARAAQAAAAAAOT/AAAPAAUAAAD//+X/AAAOAAUAAAAAAOX/AAAPAAUAAAD//+b/AAARAAQAAAAAAOb/AAARAAQAAAD//+f/AAAOAAUAAAAAAOf/AAARAAQAAAD//+j/AAAOAAUAAAAAAOj/AAARAAQAAAD//+n/AAAOAAUAAAAAAOn/AAAPAAUAAAD//+r/AAARAAQAAAAAAOr/AAAPAAUAAAD//+v/AAARAAQAAAAAAOv/AAAPAAUAAAD//+z/AAAOAAUAAAAAAOz/AAAPAAUAAAD//+3/AAAOAAUAAAAAAO3/AAAPAAUAAAD//+7/AAAOAAUAAAAAAO7/AAARAAQAAAD//+//AAAOAAUAAAAAAO//AAARAAQAAAD///D/AAARAAQAAAAAAPD/AAAPAAUAAAD///H/AAAOAAUAAAAAAPH/AAAPAAUAAAD///L/AAAOAAUAAAAAAPL/AAAPAAUAAAA=")
 tile_set = SubResource("TileSet_r1aqw")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, 254.025)
-shape = SubResource("RectangleShape2D_35qlm")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, -274.475)
-shape = SubResource("RectangleShape2D_35qlm")
