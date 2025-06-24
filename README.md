@@ -81,10 +81,6 @@ func _on_timer_timeout():
 func generer_tuyau():
     var pipe = scene_tuyau.instantiate()
     add_child(pipe)
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-    if body is CharacterBody2D:
-        get_tree().change_scene_to_file("res://src/niveau1.tscn")
 ```
 - Tester avec F5 : Un tuyau devrait apparaître et partir vers la gauche.
 
@@ -152,7 +148,7 @@ Exemple de TileSet valide : ![tileset](https://github.com/cmardon/flappy_course/
 func _process(delta):
     velocity.y += gravity * delta
     if Input.is_action_just_pressed("ui_accept"):
-        velocity.y = jump_strength
+        velocity.y = -jump_strength
 
     rotation_degrees = clamp(velocity.y * 0.1, -30, 90)
     move_and_slide()
