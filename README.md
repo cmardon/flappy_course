@@ -174,7 +174,7 @@ func _process(delta):
 | Étape | Description                                                                          |
 | ----- | ------------------------------------------------------------------------------------ |
 | 1     | Aller dans la scène `joueur`|
-| 2     | Ajouter un noeud `AudioStreamPlayer2D` et renomme le `son_saut` (sans majuscules) |
+| 2     | Ajouter un noeud `AudioStreamPlayer2D` au `CharacterBody2D` et le renommer `son_saut` (sans majuscules) |
 | 3     | Aller dans le dossier `sfx/platformer_jumping`|
 | 4     | Glisser un son de saut dans le champ `Stream : <vide>` de l'inspecteur du noeud son_saut |
 | 5     | Dans le script du joueur, modifier la fonction _process() comme ceci:|
@@ -183,7 +183,7 @@ func _process(delta):
 func _process(delta):
     velocity.y += gravity * delta
     if Input.is_action_just_pressed("ui_accept"):
-        velocity.y = jump_strength
+        velocity.y = -jump_strength
         $son_saut.play()
 
     rotation_degrees = clamp(velocity.y * 0.1, -30, 90)
@@ -244,7 +244,7 @@ func _process(delta):
 		velocity.y += gravity * delta
 		if Input.is_action_just_pressed("ui_accept"):
 			velocity.y = -jump_strength
-			$AudioStreamPlayer2D.play()
+			$son_saut.play()
 		rotation_degrees = clamp(velocity.y * 0.1, -30, 90)
 		move_and_slide()
 
