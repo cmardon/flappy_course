@@ -22,7 +22,7 @@ Voici à quoi ressemble un assemblage de noeuds (pour ici former le joueur), uti
 | Étape | Description |
 |-------|-------------|
 | 1 | Créer une nouvelle scène `joueur`. (dans le `Système de fichiers` en bas à gauche, faire Clic Droit sur le dossier `src` et sélectionner `Créer Nouveau` puis `Scène`. Saisir "joueur" comme `Nom de la scène` puis cliquer `OK`)|
-| 2 | Dans ajouter un noeud `CharacterBody2D` (Clic Droit sur le noeud `Joueur`, puis `Ajouter un noeud enfant` et chercher `CharacterBody2D` dans la barre de recherche) |
+| 2 | Dans cette scène, ajouter un noeud `CharacterBody2D` (Clic Droit sur le noeud `Joueur`, puis `Ajouter un noeud enfant` et chercher `CharacterBody2D` dans la barre de recherche) |
 | 3 | Dans la scène, ajouter un noeud `Sprite2D` **Sur le noeud CharacterBody2D** |
 | 4 | Attacher une texture : Sélectionner une texture de personnage dans le dossier `Sunny Land Collection Files/Assets/Characters/`. Une fois le personnage choisi, cliquer sur le noeud `Sprite2D` et glisser la texture dans l'onglet `Texture : <vide>` |
 | 5 | Ajouter un script au `CharacterBody2D` (avec Clic Droit sur `CharacterBody2D`, `attacher un script`, `créer`) et y coller le code suivant |
@@ -57,7 +57,7 @@ func _process(delta):
 | Étape | Description |
 |-------|-------------|
 | 1 | Dans `src/`, créer une nouvelle scène nommée `niveau1` (sans espace ni majuscule) |
-| 2 | Glisser `joueur.tscn` au milieu de la scène `niveau1` et changer sa taille modifiant le paramètre `scale` dans l'inspecteur (Cliquer sur le noeud `joueur`, puis dans l'inspecteur développer la section `Tranform` et modifier les valeurs de `Scale` |
+| 2 | Glisser `joueur.tscn` au milieu de la scène `niveau1` et changer sa taille modifiant le paramètre `scale` dans l'inspecteur (Cliquer sur le noeud `joueur`, puis dans l'inspecteur développer la section `Tranform` et modifier les valeurs de `Scale`) |
 | 3 | Dans le `Système de fichiers`, faire Clic Droit sur `niveau1.tscn` et sélectionner `Définir comme scène principale` (Appuyer sur `F5` permet maintenant de lancer le jeu)|
 | 4 | Tester avec F5 (Encore un fois, le personnage tombe et remonte quand on appuit sur `Espace` mais au milieu de l'écran cette fois-ci) |
 
