@@ -6,13 +6,32 @@
 ---
 ## Récupération du projet
 
+- Installer le moteur de jeu godot sur windows via ce lien : [cliquez ici](https://downloads.godotengine.org/?version=4.5.1&flavor=stable&slug=win64.exe.zip&platform=windows.64)
+- Dézipper le dossier en faisant clic-droit + extraire
+
+Ensuite, télécharger ce projet sur le PC en cliquant sur download zip dans la section "code" de github
+
+- Dézipper le dossier en faisant clic-droit + extraire
+
+| Étape | Description |
+|-------|-------------|
+| 1 | Installer le moteur de jeu godot sur windows via ce lien : [cliquez ici](https://downloads.godotengine.org/?version=4.5.1&flavor=stable&slug=win64.exe.zip&platform=windows.64) |
+| 2 | Dézipper le dossier en faisant clic-droit + extraire|
+| 3 | Ensuite, télécharger ce projet sur le PC en cliquant sur download zip dans la section "code" de github. Puis dézipper ce dossier|
+<img width="350" height="250" alt="image" src="https://github.com/user-attachments/assets/7fd9a924-3f2f-49a1-a7bf-aa7e11f848f6" />
+
+| Étape | Description |
+|-------|-------------|
+| 4 | Une fois Godot ouvert, scanner le projet en cliquant sur le bouton `Importer`, sélectionner le dossier `flappy_course` et double cliquer sur `project.godot` et valider en cliquant sur `importer`|
+
+<!--
 | Étape | Description |
 |-------|-------------|
 | 1 | Récupérer le projet sur le PC en ouvrant un terminal en appuyant simultanément sur les touches `Ctrl` `Alt` et `T` |
 | 2 | Écrire (ou copier-coller) la commande suivante dans le terminal : `git clone https://github.com/cmardon/flappy_course` (Attention, Ctrl+V ne fonctionne pas dans un terminal ! Utiliser Clic Droit puis Coller)|
 | 3 | Ouvrir Godot 4.4.x avec la commande suivante dans le terminal : `flatpak run org.godotengine.Godot`|
 | 4 | Une fois Godot ouvert, scanner le projet en cliquant sur le bouton `Importer`, sélectionner le dossier `flappy_course` et double cliquer sur `project.godot` et valider en cliquant sur `importer`|
-
+-->
 ---
 ## Création du joueur
 
