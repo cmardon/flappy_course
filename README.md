@@ -5,24 +5,23 @@
 - Objectif du cours : créer un jeu Flappy Bird
 ---
 ## Récupération du projet
-
+⚠️ **Faire les 2 prochains points seulement si Godot n'est pas installé** (Ignorer dans le cas des stages de seconde)
 - Installer le moteur de jeu godot sur windows via ce lien : [cliquez ici](https://downloads.godotengine.org/?version=4.5.1&flavor=stable&slug=win64.exe.zip&platform=windows.64)
 - Dézipper le dossier en faisant clic-droit + extraire
 
-Ensuite, télécharger ce projet sur le PC en cliquant sur download zip dans la section "code" de github
-
-- Dézipper le dossier en faisant clic-droit + extraire
+Ensuite :
 
 | Étape | Description |
 |-------|-------------|
-| 1 | Installer le moteur de jeu godot sur windows via ce lien : [cliquez ici](https://downloads.godotengine.org/?version=4.5.1&flavor=stable&slug=win64.exe.zip&platform=windows.64) |
-| 2 | Dézipper le dossier en faisant clic-droit + extraire|
-| 3 | Ensuite, télécharger ce projet sur le PC en cliquant sur download zip dans la section "code" de github. Puis dézipper ce dossier|
+| 1 | Télécharger ce projet sur le PC en cliquant sur download zip dans la section "code" de github. Puis dézipper ce dossier|
 <img width="350" height="250" alt="image" src="https://github.com/user-attachments/assets/7fd9a924-3f2f-49a1-a7bf-aa7e11f848f6" />
 
 | Étape | Description |
 |-------|-------------|
-| 4 | Une fois Godot ouvert, scanner le projet en cliquant sur le bouton `Importer`, sélectionner le dossier `flappy_course` et double cliquer sur `project.godot` et valider en cliquant sur `importer`|
+| 2 | Une fois Godot ouvert, importer le projet en cliquant sur le bouton `Importer`, sélectionner le dossier `flappy_course` et double cliquer sur `project.godot` et valider en cliquant sur `importer`|
+
+(Si ça ne marche pas, cliquer sur scanner, choisir le dossier *Téléchargements* et valider).
+Le projet devrait apparaître dans la fenêtre **Godot**.
 
 <!--
 | Étape | Description |
@@ -36,6 +35,7 @@ Ensuite, télécharger ce projet sur le PC en cliquant sur download zip dans la 
 ## Création du joueur
 
 Voici à quoi ressemble un assemblage de noeuds (pour ici former le joueur), utiliser cette image pour comparer peut être pratique ;)
+
 ![Noeuds joueur](https://github.com/cmardon/flappy_course/blob/main/.images_consignes/arbo_joueur.png)
 
 | Étape | Description |
