@@ -40,11 +40,11 @@ Voici à quoi ressemble un assemblage de noeuds (pour ici former le joueur), uti
 
 | Étape | Description |
 |-------|-------------|
-| 1 | Créer une nouvelle scène `joueur`. (dans le `Système de fichiers` en bas à gauche, faire Clic Droit sur le dossier `src` et sélectionner `Créer Nouveau` puis `Scène`. Saisir "joueur" comme `Nom de la scène` puis cliquer `OK`)|
+| 1 | Créer une nouvelle scène `joueur`. (dans le `Système de fichiers` en bas à gauche, faire Clic Droit sur le dossier `src` et sélectionner `Créer Nouveau` puis `Scène`. Saisir **joueur** comme `Nom de la scène` puis cliquer `OK`)|
 | 2 | Dans cette scène, ajouter un noeud `CharacterBody2D` (Clic Droit sur le noeud `Joueur`, puis `Ajouter un noeud enfant` et chercher `CharacterBody2D` dans la barre de recherche) |
 | 3 | Dans la scène, ajouter un noeud `Sprite2D` **Sur le noeud CharacterBody2D** |
 | 4 | Attacher une texture : Sélectionner une texture de personnage dans le dossier `Sunny Land Collection Files/Assets/Characters/`. Une fois le personnage choisi, cliquer sur le noeud `Sprite2D` et glisser la texture dans l'onglet `Texture : <vide>` |
-| 5 | Ajouter un script au `CharacterBody2D` (avec Clic Droit sur `CharacterBody2D`, `attacher un script`, `créer`) et y coller le code suivant |
+| 5 | Ajouter un script au `CharacterBody2D` (avec Clic Droit sur `CharacterBody2D`, `attacher un script`, `créer`), **supprimer TOUT le code déjà présent** et y coller le code suivant |
 ```gdscript
 extends CharacterBody2D
 
@@ -86,9 +86,9 @@ func _process(delta):
 | Étape | Description |
 |-------|-------------|
 | 1 | Aller dans la scène ` niveau1 ` |
-| 2 | Ajouter un noeud de type `Node2D` nommé `generateur_tuyau`, comme son nom l'indique, ce noeud servira à faire apparaître les tuyaux |
+| 2 | Ajouter un noeud de type `Node2D` et lui donner le nom `generateur_tuyau`, comme son nom l'indique, ce noeud servira à faire apparaître les tuyaux |
 | 3 | Déplacer le générateur à droite dans la fenêtre principale ![Déplacement du générateur](https://github.com/cmardon/flappy_course/blob/main/.images_consignes/generateur_a_droite.png)|
-| 4 | Attacher un script au `generateur_tuyau` et y coller le code fourni |
+| 4 | Attacher un script au `generateur_tuyau` et y coller le code suivant |
 ```gdscript
 extends Node2D
 
@@ -109,7 +109,7 @@ func generer_tuyau():
 | Étape | Description |
 |-------|-------------|
 | 5 | Ajouter un noeud `Timer` et activer `autostart` dans l'inspecteur |
-| 6 | Connecter le signal `timeout` du Timer en cliquant sur le Timer puis dans l'inspecteur, cliquer sur `Noeud > timeout() > connecter > generateur tuyau > connecter` |
+| 6 | Connecter le signal `timeout` du Timer en cliquant sur le noeud Timer, puis en haut a droite à côté de l'onglet inspecteur, cliquer sur `Signaux > timeout() > connecter > generateur tuyau > connecter` |
 
 - Tester avec F5 : Plusieurs tuyaux devraient apparaître. Modifier le timer pour changer la vitesse d’apparition (dans l'inspecteur, changer `Wait Time`). Si les tuyaux sont trop petits, modifier la `Scale` du noeud `generateur_tuyau` (Cliquer sur `generateur_tuyau` > Inspecteur > `Transform` > `Scale`).
 ---
@@ -131,7 +131,7 @@ func generer_tuyau():
 | 3 | Ajouter une ` CollisionShape2D ` au ` Area2D ` et en cliquand sur `Shape: <vide>`, choisir un `RectangleShape2D` |
 | 4 | Placer la boîte de collision au bon endroit en l’adaptant à la forme du tuyau du haut |
 | 5 | Recommencer la même manipulation sur le tuyau du bas |
-| 6 | Sélectionner une Area2D puis dans l’inspecteur, cliquer sur l’onglet ` Noeud ` et double cliquer sur ` body_entered ` puis `connecter`.|
+| 6 | Sélectionner une Area2D puis en haut à droite à côté de l'onglet inspecteur, cliquer sur l’onglet ` Signaux ` et double cliquer sur ` body_entered ` puis `connecter`.|
 | 7 | Connecter l'autre Area2D de la même manière |
 
 - Tester avec F5, toucher un tuyau doit faire recommencer le niveau
@@ -144,7 +144,7 @@ func generer_tuyau():
 | 2     | Ajouter un noeud `TileMapLayer`|
 | 3     | Sélectionner le `TileMapLayer` ajouté, puis dans l'inspecteur, cliquer sur `Tile Set : <vide>` et choisir `Nouveau TileSet`|
 | 4     | Tout en bas de l'éditeur, cliquer sur le bouton **"TileSet"** pour ouvrir l’éditeur de tuiles|
-| 5     | Dans le système de fichiers (en bas à gauche de l'écran), rechercher une image de tileset, puis la **glisser dans le rectangle "Tile source"** de l’éditeur TileSet. Puis cliquer sur oui dans la fenêtre qui apparaît|
+| 5     | Dans le système de fichiers (en bas à gauche de l'écran), rechercher une image de tileset (par exemple dans `Assets/Environments/Day-Platformer/PNG/tileset.png`), puis la **glisser dans le rectangle "Tile source"** de l’éditeur TileSet. Puis cliquer sur oui dans la fenêtre qui apparaît|
 
 Exemple de TileSet valide : ![tileset](https://github.com/cmardon/flappy_course/blob/main/Sunny%20Land%20Collection%20Files/Assets/Environments/Day-Platformer/PNG/tileset.png)
 
